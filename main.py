@@ -2,8 +2,9 @@ import discord
 from discord.ext import commands
 from intents import intents
 from dotenv import dotenv_values
+import logging
 
-
+handler = logging.FileHandler(filename="discord.log", encoding="utf-8", mode="w")
 bot = commands.Bot(command_prefix="!", intents=intents)
 
 
@@ -20,4 +21,4 @@ async def ping(ctx):
 
 if __name__ == "__main__":
     config = dotenv_values()
-    bot.run(config["AUTH_TOKEN"])
+    bot.run(config["AUTH_TOKEN"], log_handler=handler, log_level=logging.DEBUG)
