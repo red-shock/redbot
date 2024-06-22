@@ -1,3 +1,6 @@
+import datetime
+
+
 def format_time_delta(time: datetime.timedelta) -> str:
     seconds = time.total_seconds()
     years = int(seconds // 31536000)
